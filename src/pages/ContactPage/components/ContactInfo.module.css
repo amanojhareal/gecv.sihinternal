@@ -1,0 +1,47 @@
+.wrapper {
+  max-width: 26rem;
+}
+
+.heading {
+  margin: 0 0 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text, #111827);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #6b7280);
+}
+
+.value {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text, #111827);
+  line-height: 1.5;
+}
+
+.link {
+  color: var(--color-primary, #1a3a8f);
+  font-weight: 600;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

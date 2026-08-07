@@ -1,0 +1,52 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 32rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text, #111827);
+}
+
+.input,
+.textarea {
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  border: 1px solid var(--color-border, #d1d5db);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-text, #111827);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: 2px solid var(--color-primary, #1a3a8f);
+  outline-offset: 1px;
+  border-color: var(--color-primary, #1a3a8f);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.fallback {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #6b7280);
+}
+
+.fallbackLink {
+  color: var(--color-primary, #1a3a8f);
+  font-weight: 600;
+}

@@ -1,0 +1,40 @@
+.wrapper {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2rem;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent, #ff6a00);
+}
+
+.tagline {
+  margin: 0 0 0.75rem;
+  font-size: 2rem;
+  line-height: 1.15;
+  font-weight: 800;
+  color: var(--color-text, #111827);
+}
+
+.blurb {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-muted, #4b5563);
+}
+
+@media (max-width: 480px) {
+  .tagline {
+    font-size: 1.5rem;
+  }
+
+  .blurb {
+    font-size: 0.9rem;
+  }
+}

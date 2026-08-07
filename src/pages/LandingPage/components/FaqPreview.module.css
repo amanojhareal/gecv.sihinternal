@@ -1,0 +1,42 @@
+.wrapper {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.item {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border, #e2e2e2);
+}
+
+.item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.question {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text, #111827);
+}
+
+.answer {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-text-muted, #4b5563);
+}
+
+.ctaRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}

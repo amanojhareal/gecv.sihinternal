@@ -1,0 +1,170 @@
+/* =========================================================
+   Global interaction states — buttons, links, nav
+   Import this AFTER globals.css and variables.css
+   ========================================================= */
+
+/* Respect users who've asked for less motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Universal focus-visible ring ----------
+   Only shows for keyboard/AT users, not mouse clicks —
+   avoids the classic "ugly blue outline on click" complaint
+   while still being fully accessible.
+*/
+a, button, input, textarea, select, [tabindex] {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: 4px;
+}
+
+/* Fallback for browsers without :focus-visible support */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ---------- Buttons (components/ui/Button.jsx) ---------- */
+.btn {
+  position: relative;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background-color var(--transition-fast),
+    filter var(--transition-fast);
+}
+
+.btn:hover {
+  transform: translateY(var(--hover-lift));
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  filter: brightness(1.05);
+}
+
+.btn:active {
+  transform: translateY(var(--active-press));
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  filter: brightness(0.97);
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Primary vs secondary variants */
+.btn--primary:hover { filter: brightness(1.08); }
+.btn--secondary:hover { background-color: rgba(0, 0, 0, 0.04); }
+
+/* ---------- ExternalLinkButton (Problem Statement, Forms) ---------- */
+.external-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--transition-fast), gap var(--transition-fast);
+}
+
+.external-link-btn:hover {
+  gap: 9px; /* icon nudges outward — signals "opens elsewhere" */
+  color: var(--color-orange, #ff6b35);
+}
+
+.external-link-btn:hover .icon-arrow {
+  transform: translate(2px, -2px);
+  transition: transform var(--transition-fast);
+}
+
+/* ---------- Inline text links (FAQ, body copy) ---------- */
+.text-link {
+  color: var(--color-blue, #1a3c6e);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--transition-fast), color var(--transition-fast);
+}
+
+.text-link:hover {
+  text-decoration-color: currentColor;
+}
+
+.text-link:visited {
+  color: var(--color-blue-dark, #142f57);
+}
+
+/* ---------- Navbar links (layout/Navbar/NavLinks.jsx) ---------- */
+.nav-link {
+  position: relative;
+  padding: 8px 4px;
+  transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--color-orange, #ff6b35);
+  transition: width var(--transition-medium);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--color-orange, #ff6b35);
+  font-weight: 600;
+}
+
+/* Icon-only nav items (ContactLogo, FaqLogo) need a bigger hit target */
+.nav-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.nav-icon-link:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+  transform: scale(1.08);
+}
+
+/* ---------- Card hover (Themes.jsx, Sponsors.jsx grids) ---------- */
+.card {
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- FaqItem accordion trigger ---------- */
+.faq-trigger {
+  transition: background-color var(--transition-fast);
+}
+
+.faq-trigger:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}

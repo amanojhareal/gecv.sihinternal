@@ -1,0 +1,13 @@
+.formSection {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+  scroll-margin-top: 5rem; /* offset for a fixed/sticky Navbar when jumping to #register-form */
+}
+
+.formDescription {
+  margin: 0.5rem 0 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted, #4b5563);
+}

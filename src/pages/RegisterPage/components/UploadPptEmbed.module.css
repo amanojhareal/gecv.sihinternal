@@ -1,0 +1,19 @@
+.wrapper {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+}
+
+.heading {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text, #111827);
+}
+
+.description {
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted, #4b5563);
+}

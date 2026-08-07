@@ -1,0 +1,64 @@
+.wrapper {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+}
+
+.heading {
+  margin: 0 0 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text, #111827);
+}
+
+.list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.number {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-primary, #1a3a8f);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.content {
+  padding-top: 0.15rem;
+}
+
+.stepTitle {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text, #111827);
+}
+
+.stepDescription {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-text-muted, #4b5563);
+}
+
+.ctaRow {
+  display: flex;
+  justify-content: center;
+}

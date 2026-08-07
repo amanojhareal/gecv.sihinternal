@@ -1,0 +1,28 @@
+.wrapper {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 3.5rem;
+}
+
+.pageHeading {
+  margin: 0 0 0.75rem;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-text, #111827);
+}
+
+.intro {
+  margin: 0 0 2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted, #4b5563);
+}
+
+.contactLink {
+  color: var(--color-primary, #1a3a8f);
+  font-weight: 600;
+}
+
+.contactLink:hover {
+  text-decoration: underline;
+}

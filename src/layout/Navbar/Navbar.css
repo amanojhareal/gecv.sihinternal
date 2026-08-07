@@ -1,0 +1,211 @@
+/**
+ * src/layout/Navbar/Navbar.css
+ *
+ * Plain global stylesheet (NOT a CSS Module) — matches the BEM class
+ * strings already used in Navbar.jsx / NavLinks.jsx / ContactLogo.jsx /
+ * FaqLogo.jsx ("navbar__link", "navbar__link--active", etc). Those are
+ * plain string classNames, not `styles.xyz` lookups, so they need a
+ * global stylesheet, not a co-located .module.css.
+ *
+ * ACTION NEEDED: this file isn't imported anywhere yet. Add this
+ * line near the top of Navbar.jsx:
+ *     import "./Navbar.css";
+ *
+ * Mobile-first: stacked by default, switches to a horizontal bar at
+ * DESKTOP_BREAKPOINT (768px). Uses the same --color-* custom
+ * properties as the rest of the site (define these in
+ * styles/variables.css if you haven't already) so the Navbar stays
+ * visually consistent without hardcoding colors here.
+ */
+
+:root {
+  --navbar-height: 4rem;
+}
+
+/* ---------- Header shell ---------- */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--color-border, #e5e7eb);
+}
+
+.navbar__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--navbar-height);
+  padding: 0 1rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.navbar__brand {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-text, #111827);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ---------- Hamburger toggle (mobile only) ---------- */
+
+.navbar__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.navbar__toggle-bar {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background: var(--color-text, #111827);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar__toggle[aria-expanded="true"] .navbar__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__toggle[aria-expanded="true"] .navbar__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle[aria-expanded="true"] .navbar__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.navbar__toggle:focus-visible {
+  outline: 2px solid var(--color-primary, #1a3a8f);
+  outline-offset: 2px;
+}
+
+/* ---------- Collapsible menu (mobile) ---------- */
+
+.navbar__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0 1rem 1rem;
+  border-top: 1px solid var(--color-border, #e5e7eb);
+}
+
+.navbar__menu[data-open="false"] {
+  display: none;
+}
+
+.navbar__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.navbar__link {
+  display: block;
+  padding: 0.6rem 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text, #111827);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar__link:hover {
+  color: var(--color-primary, #1a3a8f);
+}
+
+.navbar__link--active {
+  color: var(--color-primary, #1a3a8f);
+  border-bottom-color: var(--color-accent, #ff6a00);
+}
+
+.navbar__link--external {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* ---------- Icon links (Contact / FAQ) ---------- */
+
+.navbar__icons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.navbar__icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  color: var(--color-text-muted, #6b7280);
+  background: var(--color-bg-muted, #f3f4f6);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.navbar__icon-link:hover {
+  background: var(--color-primary, #1a3a8f);
+  color: #fff;
+}
+
+/* react-router-dom's NavLink applies its OWN "active" class by default
+   in addition to any custom className passed. ContactLogo/FaqLogo
+   don't use an isActive className function, so style off that default
+   "active" class instead, scoped to icon links only. */
+.navbar__icon-link.active {
+  background: var(--color-primary, #1a3a8f);
+  color: #fff;
+}
+
+/* ---------- Desktop layout ---------- */
+
+@media (min-width: 768px) {
+  .navbar__toggle {
+    display: none;
+  }
+
+  .navbar__menu {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    padding: 0 1rem;
+    border-top: none;
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  .navbar__links {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0;
+  }
+
+  .navbar__link {
+    padding: 0.4rem 0.1rem;
+  }
+
+  .navbar__icons {
+    margin-top: 0;
+  }
+}

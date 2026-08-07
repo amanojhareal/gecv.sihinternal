@@ -1,0 +1,65 @@
+.wrapper {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+}
+
+.list {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  gap: 1rem;
+}
+
+.marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1rem;
+}
+
+.dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--color-primary, #1a3a8f);
+  flex-shrink: 0;
+}
+
+.connector {
+  flex: 1;
+  width: 2px;
+  margin-top: 0.25rem;
+  background: var(--color-border, #e2e2e2);
+}
+
+.content {
+  padding-bottom: 2rem;
+}
+
+.date {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-accent, #ff6a00);
+}
+
+.title {
+  margin: 0.25rem 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text, #111827);
+}
+
+.description {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-text-muted, #4b5563);
+}

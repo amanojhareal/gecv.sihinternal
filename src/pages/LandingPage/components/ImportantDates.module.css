@@ -1,0 +1,45 @@
+.wrapper {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+}
+
+.list {
+  margin: 2rem 0 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border, #e2e2e2);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text, #111827);
+}
+
+.date {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent, #ff6a00);
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+}

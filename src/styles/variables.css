@@ -1,0 +1,163 @@
+/**
+ * src/styles/variables.css
+ *
+ * Design tokens for the SIH college-internal site. Every color,
+ * spacing value, font size, radius, and shadow used anywhere on the
+ * site should trace back to a variable defined here — components
+ * should never hardcode a hex code or a raw px/rem value for these
+ * categories. That's what makes a full re-theme (or a "someone asks
+ * for a slightly different blue" request) a one-file change.
+ *
+ * Import this once, globally, before globals.css — e.g. in main.jsx:
+ *   import "./styles/variables.css";
+ *   import "./styles/globals.css";
+ */
+
+:root {
+  /* ============================================================
+     COLOR — Brand
+     Deep blue + orange, following SIH's official palette. Blue
+     carries authority/trust (govt-backed program), orange is the
+     energy/action color — CTAs, active states, highlights.
+     Each has a couple of tonal steps for hover/pressed states and
+     tints for subtle backgrounds, so components never need to
+     invent their own shade of the brand color.
+     ============================================================ */
+
+  --color-primary-900: #061b3f;   /* deepest navy — headers on light bg, high-contrast text */
+  --color-primary-700: #0b2c66;   /* hover/pressed state for primary */
+  --color-primary: #10357f;       /* SIH deep blue — primary brand color */
+  --color-primary-100: #e7ecf7;   /* pale blue tint — subtle backgrounds, selected states */
+
+  --color-accent-700: #cc5400;    /* hover/pressed state for accent */
+  --color-accent: #f77f00;        /* SIH orange — CTAs, active states, highlights */
+  --color-accent-100: #fff0dc;    /* pale orange tint — badges, subtle highlight backgrounds */
+
+  /* ============================================================
+     COLOR — Neutrals & UI
+     A restrained gray scale for text, borders, and backgrounds.
+     Named by role (not just "gray-500") so components read clearly:
+     `color: var(--color-text-muted)` is more self-explanatory at the
+     call site than `color: var(--gray-500)`.
+     ============================================================ */
+
+  --color-bg: #ffffff;
+  --color-bg-muted: #f7f8fa;      /* section backgrounds, cards, input fills */
+  --color-border: #e2e5eb;
+
+  --color-text: #14171f;          /* body copy, headings */
+  --color-text-muted: #5b6270;    /* secondary copy, captions, labels */
+  --color-text-inverse: #ffffff;  /* text on dark/primary backgrounds */
+
+  /* Semantic feedback colors — form validation, alerts, statuses */
+  --color-success: #1e8e5a;
+  --color-warning: #b8860b;
+  --color-danger: #c8341f;
+
+  /* ============================================================
+     TYPOGRAPHY
+     One system font stack (fast, no font-loading flash) with a
+     modular type scale. Scale ratio ~1.25 keeps headings feeling
+     intentional rather than arbitrary jumps.
+     ============================================================ */
+
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+
+  --font-size-xs: 0.75rem;     /* 12px — captions, fine print */
+  --font-size-sm: 0.875rem;    /* 14px — secondary text, form labels */
+  --font-size-base: 1rem;      /* 16px — body copy */
+  --font-size-md: 1.125rem;    /* 18px — lead paragraphs */
+  --font-size-lg: 1.375rem;    /* 22px — card titles, small headings */
+  --font-size-xl: 1.75rem;     /* 28px — section headings (h2) */
+  --font-size-2xl: 2.25rem;    /* 36px — page headings (h1) */
+  --font-size-3xl: 2.75rem;    /* 44px — hero/landing headline */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --line-height-tight: 1.2;    /* headings */
+  --line-height-base: 1.55;    /* body copy */
+  --line-height-relaxed: 1.7;  /* long-form reading (About page paragraphs) */
+
+  /* ============================================================
+     SPACING SCALE
+     A single consistent scale used for padding, margin, and gap
+     everywhere — prevents the "one component uses 14px, another
+     uses 15px" drift that happens when spacing is improvised
+     per-component. Roughly a 4px base grid.
+     ============================================================ */
+
+  --space-1: 0.25rem;   /* 4px  */
+  --space-2: 0.5rem;    /* 8px  */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+
+  /* Common layout widths — keeps every page's max-width consistent
+     instead of each page component guessing its own value. */
+  --content-width-narrow: 36rem;   /* forms, focused reading (Contact) */
+  --content-width-base: 44rem;     /* standard prose sections */
+  --content-width-wide: 64rem;     /* grids, multi-column layouts */
+  --content-width-full: 72rem;     /* page shell / navbar max-width */
+
+  /* ============================================================
+     RADIUS & SHADOW
+     A small fixed set — using the same radius/shadow everywhere
+     (cards, buttons, inputs) is what makes a UI feel considered
+     rather than assembled from mismatched parts.
+     ============================================================ */
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 999px;   /* pills, circular icon buttons */
+
+  --shadow-sm: 0 1px 2px rgba(6, 27, 63, 0.06);
+  --shadow-md: 0 4px 12px rgba(6, 27, 63, 0.08);
+  --shadow-lg: 0 12px 32px rgba(6, 27, 63, 0.12);
+
+  /* ============================================================
+     MOTION
+     Two durations covers ~95% of UI transitions (hover states,
+     accordions, menu toggles) — resist adding more unless a
+     specific interaction genuinely needs different timing.
+     ============================================================ */
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
+  /* ============================================================
+     Z-INDEX SCALE
+     Named layers instead of arbitrary numbers, so a new overlay
+     component doesn't have to guess whether "999" is safely above
+     or below the navbar.
+     ============================================================ */
+
+  --z-navbar: 100;
+  --z-dropdown: 200;
+  --z-modal-backdrop: 300;
+  --z-modal: 310;
+  --z-toast: 400;
+
+
+  /* Interaction tokens */
+  --focus-ring-color: var(--color-orange, #ff6b35);
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+
+  --transition-fast: 150ms ease;
+  --transition-medium: 250ms ease;
+
+  --hover-lift: -2px;
+  --active-press: 1px;
+}

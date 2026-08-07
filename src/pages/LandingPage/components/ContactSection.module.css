@@ -1,0 +1,19 @@
+.wrapper {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 3rem;
+  text-align: center;
+}
+
+.blurb {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted, #4b5563);
+}
+
+.ctaRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
