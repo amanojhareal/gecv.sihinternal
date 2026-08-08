@@ -27,11 +27,11 @@ export const LINKS = {
   UPLOAD_PPT_FORM_URL,
 };
 export const SOCIAL_LINKS = [
-  { platform: "Instagram", url: "https://instagram.com/sih", icon: "FaInstagram" },
-  { platform: "Twitter", url: "https://twitter.com/sih", icon: "FaTwitter" },
-  { platform: "LinkedIn", url: "https://linkedin.com/company/sih", icon: "FaLinkedin" },
-  { platform: "YouTube", url: "https://youtube.com/@sih", icon: "FaYoutube" },
-  { platform: "Facebook", url: "https://facebook.com/sih", icon: "FaFacebook" },
+  { platform: "Instagram", url: "https://instagram.com/_aman.ojha_/", icon: "FaInstagram" },
+  { platform: "Twitter", url: "https://x.com/gec_vaishali", icon: "FaTwitter" },
+  { platform: "LinkedIn", url: "https://linkedin.com/in/realaman/", icon: "FaLinkedin" },
+  { platform: "YouTube", url: "https://youtube.com/@GECVaishali", icon: "FaYoutube" },
+  { platform: "Facebook", url: "https://facebook.com/gec.vaishali/", icon: "FaFacebook" },
 ];
 
 export default LINKS;
