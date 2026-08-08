@@ -44,11 +44,11 @@ const LandingPage = () => {
       <CountdownTimer />
       <SihIntroduction />
       <Timeline />
-      <Themes />
+      {/* <Themes /> */}
       <ImportantDates />
       <FaqPreview />
-      <Organizers />
-      <Sponsors />
+      {/* <Organizers /> */}
+      {/* <Sponsors /> */}
       <ContactSection />
     </>
   );
