@@ -1,11 +1,26 @@
 /**
  * src/layout/Navbar/Navbar.jsx
- * Glass sticky navbar with scroll-aware shadow and an animated
- * mobile drawer. Semantics/ARIA unchanged from the original.
+ *
+ * Left side is now a BANNER PLACEHOLDER (dashed box) instead of the
+ * "SIH Website" text link — swap the placeholder <div> below for your
+ * actual banner image once you have it, e.g.:
+ *
+ *   <Link to={ROUTE_PATHS.HOME} onClick={closeMobileMenu}>
+ *     <img src="/assets/logos/banner.png" alt="Smart India Hackathon"
+ *          className="h-10 w-auto" />
+ *   </Link>
+ *
+ * Sized against the reference screenshot's logo strip (~40px tall,
+ * wide horizontal). Still wrapped in a Link to Home so it stays
+ * clickable/functional even as a placeholder.
+ *
+ * Everything else (scroll shadow, mobile drawer, motion) is unchanged
+ * from before.
  */
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { ImageIcon } from "lucide-react";
 import { ROUTE_PATHS } from "../../routes";
 import NavLinks from "./NavLinks";
 import ContactLogo from "./ContactLogo";
@@ -27,22 +42,16 @@ export default function Navbar() {
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <header
-      className={clsxHeader(isScrolled)}
-    >
+    <header className={clsxHeader(isScrolled)}>
       <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-4 sm:px-6">
-        <Link
-          to={ROUTE_PATHS.HOME}
-          onClick={closeMobileMenu}
-          className="text-lg font-extrabold tracking-tight text-ink transition-colors hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 rounded-md"
-        >
-          SIH<span className="text-accent">.</span>Website
-        </Link>
-
+        {<Link to={ROUTE_PATHS.HOME} onClick={closeMobileMenu}>
+      <img src="/assets/logos/banner.png" alt="Smart India Hackathon"
+           className="h-10 w-auto" /></Link>}
+       
         {/* Desktop nav — hidden below md */}
-        <div className="hidden md:flex md:items-center md:gap-8">
+        <div className="hidden md:flex md:items-center md:gap-2">
           <NavLinks onNavigate={closeMobileMenu} />
-          <div className="flex items-center gap-2 border-l border-slate-200 pl-4">
+          <div className="ml-2 flex items-center gap-2 border-l border-slate-200 pl-4">
             <ContactLogo onNavigate={closeMobileMenu} />
             <FaqLogo onNavigate={closeMobileMenu} />
           </div>
@@ -59,11 +68,7 @@ export default function Navbar() {
         >
           <motion.span
             className="absolute h-0.5 w-5 rounded-full bg-ink"
-            animate={
-              isMobileMenuOpen
-                ? { rotate: 45, y: 0 }
-                : { rotate: 0, y: -6 }
-            }
+            animate={isMobileMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -6 }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
           />
           <motion.span
@@ -73,11 +78,7 @@ export default function Navbar() {
           />
           <motion.span
             className="absolute h-0.5 w-5 rounded-full bg-ink"
-            animate={
-              isMobileMenuOpen
-                ? { rotate: -45, y: 0 }
-                : { rotate: 0, y: 6 }
-            }
+            animate={isMobileMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 6 }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
           />
         </button>
