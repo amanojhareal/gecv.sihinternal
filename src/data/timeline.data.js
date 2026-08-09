@@ -20,42 +20,63 @@ const timelineData = [
     title: "Registration Opens",
     description:
       "Teams register on the SIH portal and on this site, form their squad, and pick a problem statement track.",
+    iconType: "calendar",
+    variant: "blue",
+    status: "active",
   },
   {
     date: "2026-08-20",
-    title: "Team Formation Deadline",
+    title: "Registration Closes",
     description:
-      "All teams must be finalized with a mentor assigned before this date — no changes to team composition after this point.",
+      "Last date to complete registration and finalize your team and problem statement.",
+    iconType: "calendar",
+    variant: "orange",
+    status: "upcoming",
   },
   {
-    date: "2026-09-05",
-    title: "Problem Statement Selection",
+    date: "2026-09-01",
+    title: "Idea Submission Begins",
     description:
-      "Teams lock in their chosen problem statement from the official SIH list and begin ideation.",
+      "Submit your ideas using the official template presentation and initial architectural outline.",
+    iconType: "file",
+    variant: "green",
+    status: "upcoming",
   },
   {
     date: "2026-09-25",
     title: "Idea Submission (PPT Round)",
     description:
       "Teams submit their proposed solution as a presentation through the Upload PPT form for internal shortlisting.",
+    iconType: "file",
+    variant: "purple",
+    status: "upcoming",
   },
   {
     date: "2026-10-10",
     title: "Internal Shortlisting Results",
     description:
       "Shortlisted teams are announced and given access to mentorship sessions ahead of the institute-level round.",
+    iconType: "award",
+    variant: "teal",
+    status: "upcoming",
   },
   {
     date: "2026-10-25",
     title: "Institute-Level Hackathon",
     description:
       "Shortlisted teams build and present a working prototype on-site to compete for a spot in the national round.",
+    iconType: "calendar",
+    variant: "blue",
+    status: "upcoming",
   },
   {
     date: "2026-11-15",
     title: "Grand Finale (National Round)",
     description:
       "Top teams from across institutes compete in the 36-hour national hackathon, judged by industry and government experts.",
+    iconType: "award",
+    variant: "indigo",
+    status: "upcoming",
   },
 ];
 

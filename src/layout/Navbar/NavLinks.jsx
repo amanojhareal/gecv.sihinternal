@@ -11,7 +11,7 @@
  */
 import { NavLink, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { House, FileText, UserPlus, Info, ExternalLink } from "lucide-react";
+import { House, FileText, UserPlus, Info } from "lucide-react";
 import { ROUTE_PATHS } from "../../routes";
 import { SIH_PORTAL_URL } from "../../config/links";
 
@@ -65,11 +65,7 @@ export default function NavLinks({ onNavigate }) {
         >
           <FileText size={17} strokeWidth={2} aria-hidden="true" />
           Problem Statement
-          <ExternalLink
-            size={13}
-            className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            aria-hidden="true"
-          />
+          
         </a>
       </li>
     </ul>
