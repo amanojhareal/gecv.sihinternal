@@ -1,43 +1,33 @@
 /**
  * organizers.data.js
- * Powers the <Organizers /> logo grid on the Landing Page — the
- * institutions/bodies running or hosting this SIH edition.
- *
- * Shape: { name, logo, role }
- *  - name: organizer/institution name
- *  - logo: path to the logo file. Since these are static brand assets
- *          (not imported/processed by the bundler), place actual files in
- *          public/assets/logos/ and reference them with a root-relative
- *          path, e.g. "/assets/logos/aicte.svg" — this matches the
- *          public/assets/logos/ folder already in the project structure.
- *  - role: what this organizer does for the event, e.g. "Organizer",
- *          "Host Institute", "Government Partner", "Nodal Center"
- *
- * ⚠️ Placeholder entries — replace names/logos/roles with your actual
- * organizing bodies, and drop the corresponding logo files into
- * public/assets/logos/.
+ * Powers the <Organizers /> section on the Landing Page — the
+ * key leadership and faculty organizing committee for GECV SIH Internal Hackathon.
  */
 
 const organizersData = [
   {
-    name: "Ministry of Education, Government of India",
-    logo: "/assets/logos/moe.svg",
-    role: "Organizer",
+    name: "Dr. Ashish Kumar Srivastava",
+    role: "Patron",
+    designation: "Principal, GEC Vaishali",
+    image: "https://www.gecvaishali.ac.in/wp-content/uploads/2026/07/ashis-mit.webp",
+    profileUrl: "https://www.gecvaishali.ac.in/about-us/principals-message/",
+    variant: "blue",
   },
   {
-    name: "AICTE",
-    logo: "/assets/logos/aicte.svg",
-    role: "Organizer",
+    name: "Dr. Tripta",
+    role: "SPOC",
+    designation: "Assistant Professor, ECE Dept.",
+    image: "https://www.gecvaishali.ac.in/wp-content/uploads/2026/04/Dr.-Tripta.jpg",
+    profileUrl: "https://www.gecvaishali.ac.in/faculty/dr-tripta/",
+    variant: "amber",
   },
   {
-    name: "Smart India Hackathon",
-    logo: "/assets/logos/sih-logo.svg",
-    role: "National Program",
-  },
-  {
-    name: "Host Institute",
-    logo: "/assets/logos/org-logo.svg",
-    role: "Host Institute / Nodal Center",
+    name: "Prof. Aparna",
+    role: "Faculty Coordinator",
+    designation: "Assistant Professor, CSE Dept.",
+    image: "https://www.gecvaishali.ac.in/wp-content/uploads/2026/04/Aparna.jpg",
+    profileUrl: "https://www.gecvaishali.ac.in/faculty/aparna/",
+    variant: "emerald",
   },
 ];
 

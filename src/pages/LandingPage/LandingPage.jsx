@@ -2,6 +2,7 @@ import CountdownTimer from "./components/CountdownTimer";
 import SihIntroduction from "./components/SihIntroduction";
 import QuickActions from "./components/QuickActions";
 import Timeline from "./components/Timeline";
+import Organizers from "./components/Organizers";
 import ImportantDates from "./components/ImportantDates";
 import FaqPreview from "./components/FaqPreview";
 import ContactSection from "./components/ContactSection";
@@ -21,7 +22,8 @@ const dotPatternStyle = {
  *  1. Hero Countdown & Introduction Card
  *  2. Standalone Quick Actions & Resources Section
  *  3. Journey Timeline Card
- *  4. Important Dates, FAQ Preview, and Contact Strip
+ *  4. Organizing Committee (Patron, SPOC, Faculty Coordinator)
+ *  5. Important Dates, FAQ Preview, and Contact Strip
  */
 const LandingPage = () => {
   return (
@@ -64,6 +66,7 @@ const LandingPage = () => {
         {/* Supporting Sections Container */}
         <div className="mx-auto max-w-4xl px-4 sm:px-6 space-y-10 sm:space-y-14">
           <ImportantDates />
+          <Organizers />
           <FaqPreview />
           <ContactSection />
         </div>
