@@ -27,9 +27,9 @@ export const LINKS = {
   UPLOAD_PPT_FORM_URL,
 };
 export const SOCIAL_LINKS = [
-  { platform: "Instagram", url: "https://instagram.com/_aman.ojha_/", icon: "FaInstagram" },
+  { platform: "Instagram", url: "https://instagram.com/sih_internalhackathon_gecv/", icon: "FaInstagram" },
   { platform: "Twitter", url: "https://x.com/gec_vaishali", icon: "FaTwitter" },
-  { platform: "LinkedIn", url: "https://linkedin.com/in/realaman/", icon: "FaLinkedin" },
+  { platform: "LinkedIn", url: "https://linkedin.com/in/gec-vaishali/", icon: "FaLinkedin" },
   { platform: "YouTube", url: "https://youtube.com/@GECVaishali", icon: "FaYoutube" },
   { platform: "Facebook", url: "https://facebook.com/gec.vaishali/", icon: "FaFacebook" },
 ];
