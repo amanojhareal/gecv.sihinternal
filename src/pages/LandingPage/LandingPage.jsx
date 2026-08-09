@@ -27,7 +27,7 @@ const LandingPage = () => {
   return (
     <>
       <PageMeta
-        title="Home"
+        title="GECV-SIH Internal Hackathon"
         description="Smart India Hackathon — register your team, explore problem statements, download templates, and track key dates."
       />
 
