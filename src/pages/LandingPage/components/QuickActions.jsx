@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
-import { Globe, FileCode2, SquarePen, Download, FileUp } from "lucide-react";
+import { FileCode2, SquarePen, Download, FileUp } from "lucide-react";
 import { SIH_PORTAL_URL } from "../../../config/links";
 import { ROUTE_PATHS } from "../../../routes";
 
 const TEMPLATE_URL = "/assets/templates/SIH_PPT_Template.pptx";
 const TEMPLATE_FILENAME = "SIH_PPT_Template.pptx";
+const SIH_FAVICON_URL = "https://sih.gov.in/img/favicon-sih.png";
 
 /**
  * QuickActions Component
- * 5 action cards matching the reference image layout:
- * 1. Official SIH Portal (External link)
+ * 5 action cards matching the reference design layout:
+ * 1. Official SIH Portal (External link with SIH logo)
  * 2. Problem Statements (External link)
  * 3. Internal Reg. Form (Internal link with REQUIRED badge)
  * 4. PPT Template (Download trigger)
@@ -17,18 +18,19 @@ const TEMPLATE_FILENAME = "SIH_PPT_Template.pptx";
  */
 const QuickActions = () => {
   return (
-    <div className="mt-8 sm:mt-12 max-w-6xl mx-auto px-3 sm:px-6">
+    <section className="mx-auto max-w-[1280px] px-4 sm:px-6 my-8 sm:my-12">
+      {/* 5 Card Grid Container */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3.5 sm:gap-4">
         
-        {/* Card 1: Official SIH Portal */}
+        {/* Card 1: Official SIH Portal (SIH Logo) */}
         <a
           href={SIH_PORTAL_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="group relative flex flex-col items-center justify-center text-center rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-sm transition-all duration-300 hover:border-indigo-300 hover:shadow-md hover:-translate-y-1 cursor-pointer"
         >
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 mb-3 group-hover:scale-110 transition-transform">
-            <Globe size={22} strokeWidth={2} aria-hidden="true" />
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50/70 mb-3 group-hover:scale-110 transition-transform">
+            <img src={SIH_FAVICON_URL} alt="SIH Logo" className="h-6 w-6 object-contain" />
           </div>
           <h3 className="text-sm font-extrabold text-[#0f172a] group-hover:text-indigo-600 transition-colors">
             Official SIH Portal
@@ -56,12 +58,12 @@ const QuickActions = () => {
           </p>
         </a>
 
-        {/* Card 3: Internal Reg. Form (REQUIRED Badge on Hover & Default) */}
+        {/* Card 3: Internal Reg. Form (REQUIRED Badge) */}
         <Link
           to={ROUTE_PATHS.REGISTER}
           className="group relative flex flex-col items-center justify-center text-center rounded-2xl border border-emerald-200/90 bg-emerald-50/10 p-5 sm:p-6 shadow-sm transition-all duration-300 hover:border-emerald-400 hover:bg-emerald-50/30 hover:shadow-md hover:-translate-y-1 cursor-pointer"
         >
-          {/* Required Badge Tag (Shows on Hover & Default Glow) */}
+          {/* Required Badge Tag */}
           <span className="absolute -top-2.5 -right-2 sm:-top-3 sm:-right-2 bg-gradient-to-r from-rose-500 to-red-600 text-white text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-md shadow-rose-500/25 transition-all duration-300 group-hover:scale-110 group-hover:shadow-rose-500/40">
             REQUIRED
           </span>
@@ -94,12 +96,12 @@ const QuickActions = () => {
           </p>
         </a>
 
-        {/* Card 5: Submit Your PPT (REQUIRED Badge on Hover & Default) */}
+        {/* Card 5: Submit Your PPT (REQUIRED Badge) */}
         <Link
           to={ROUTE_PATHS.REGISTER}
           className="group relative flex flex-col items-center justify-center text-center rounded-2xl border border-rose-200/90 bg-rose-50/20 p-5 sm:p-6 shadow-sm transition-all duration-300 hover:border-rose-400 hover:bg-rose-50/40 hover:shadow-md hover:-translate-y-1 cursor-pointer"
         >
-          {/* Required Badge Tag (Shows on Hover & Default Glow) */}
+          {/* Required Badge Tag */}
           <span className="absolute -top-2.5 -right-2 sm:-top-3 sm:-right-2 bg-gradient-to-r from-rose-500 to-red-600 text-white text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-md shadow-rose-500/25 transition-all duration-300 group-hover:scale-110 group-hover:shadow-rose-500/40">
             REQUIRED
           </span>
@@ -116,7 +118,7 @@ const QuickActions = () => {
         </Link>
 
       </div>
-    </div>
+    </section>
   );
 };
 
