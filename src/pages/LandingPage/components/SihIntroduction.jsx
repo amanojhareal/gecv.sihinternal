@@ -27,7 +27,7 @@ const SihIntroduction = () => {
 
       {/* Blurb */}
       <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-        Smart India Hackathon brings together students from across the country to solve real, pressing problems faced by government ministries, departments, and industry — turning bold ideas into working solutions over one intense, collaborative sprint.
+        Smart India Hackathon brings together students from across the country to solve real, pressing problems faced by government ministries, departments, and industry turning bold ideas into working solutions over one intense, collaborative sprint.
       </p>
     </div>
   );

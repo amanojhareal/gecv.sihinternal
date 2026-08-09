@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FileCode2, SquarePen, Download, FileUp } from "lucide-react";
-import { SIH_PORTAL_URL } from "../../../config/links";
+import { SIH_PORTAL_URL,REGISTER_FORM_URL,UPLOAD_PPT_FORM_URL } from "../../../config/links";
 import { ROUTE_PATHS } from "../../../routes";
 
 const TEMPLATE_URL = "/assets/templates/SIH_PPT_Template.pptx";
@@ -59,8 +59,10 @@ const QuickActions = () => {
         </a>
 
         {/* Card 3: Internal Reg. Form (REQUIRED Badge) */}
-        <Link
-          to={ROUTE_PATHS.REGISTER}
+        <a
+          href={REGISTER_FORM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="group relative flex flex-col items-center justify-center text-center rounded-2xl border border-emerald-200/90 bg-emerald-50/10 p-5 sm:p-6 shadow-sm transition-all duration-300 hover:border-emerald-400 hover:bg-emerald-50/30 hover:shadow-md hover:-translate-y-1 cursor-pointer"
         >
           {/* Required Badge Tag */}
@@ -77,7 +79,7 @@ const QuickActions = () => {
           <p className="mt-1 text-[11px] font-semibold text-slate-400">
             GEC Vaishali Team Reg.
           </p>
-        </Link>
+        </a>
 
         {/* Card 4: PPT Template */}
         <a
@@ -97,8 +99,10 @@ const QuickActions = () => {
         </a>
 
         {/* Card 5: Submit Your PPT (REQUIRED Badge) */}
-        <Link
-          to={ROUTE_PATHS.REGISTER}
+        <a
+          href={UPLOAD_PPT_FORM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="group relative flex flex-col items-center justify-center text-center rounded-2xl border border-rose-200/90 bg-rose-50/20 p-5 sm:p-6 shadow-sm transition-all duration-300 hover:border-rose-400 hover:bg-rose-50/40 hover:shadow-md hover:-translate-y-1 cursor-pointer"
         >
           {/* Required Badge Tag */}
@@ -115,7 +119,7 @@ const QuickActions = () => {
           <p className="mt-1 text-[11px] font-semibold text-slate-400">
             Upload Presentation File
           </p>
-        </Link>
+        </a>
 
       </div>
     </section>

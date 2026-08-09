@@ -51,7 +51,7 @@ const CountdownTimer = () => {
           <div className="mt-4 flex items-center justify-center gap-3">
             <span className="h-px w-8 sm:w-16 border-t border-dashed border-blue-400/60" aria-hidden="true" />
             <span className="whitespace-nowrap text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#1e40af]">
-              Registration Opens In
+              Registration Closes In
             </span>
             <span className="h-px w-8 sm:w-16 border-t border-dashed border-blue-400/60" aria-hidden="true" />
           </div>
