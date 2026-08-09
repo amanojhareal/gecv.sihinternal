@@ -1,26 +1,10 @@
 import { useState } from "react";
+import { Send, Mail } from "lucide-react";
 import { CONTACT_EMAIL } from "../../../config/constants";
-import Button from "../../../components/ui/Button";
-import styles from "./ContactForm.module.css";
 
 /**
  * ContactForm
- *
- * Decision: mailto:, not an embedded Google Form. Reasoning:
- *   - No backend, no new env var / Google Form to create and maintain
- *   - Keeps this page's contact flow self-contained instead of adding a
- *     second GoogleFormEmbed usage with a form that doesn't exist yet
- *   - A real <form> with actual fields (name/email/subject/message) is
- *     a nicer UX than a bare "email us" link, while still avoiding any
- *     backend — on submit it builds a mailto: URL from the fields and
- *     opens the visitor's own email client with everything pre-filled.
- *
- * Trade-off worth knowing: mailto: only works if the visitor has a
- * configured email client (desktop mail app, or a mobile OS mail app).
- * It won't work well in some sandboxed/webview browsers. If that turns
- * out to be a real problem for your users, switch this to an embedded
- * Google Form instead — the CONTACT_EMAIL constant and field structure
- * below don't need to change either way; only handleSubmit would.
+ * Form component with sleek inputs and a styled Send Message CTA button.
  */
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -49,9 +33,9 @@ const ContactForm = () => {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      <div className={styles.field}>
-        <label htmlFor="contact-name" className={styles.label}>
+    <form className="space-y-4 max-w-lg" onSubmit={handleSubmit}>
+      <div className="space-y-1.5">
+        <label htmlFor="contact-name" className="block text-xs sm:text-sm font-bold text-slate-900">
           Name
         </label>
         <input
@@ -59,62 +43,73 @@ const ContactForm = () => {
           name="name"
           type="text"
           required
+          placeholder="Your full name"
           value={formData.name}
           onChange={handleChange}
-          className={styles.input}
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 transition-all focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20"
         />
       </div>
 
-      <div className={styles.field}>
-        <label htmlFor="contact-email" className={styles.label}>
-          Email
+      <div className="space-y-1.5">
+        <label htmlFor="contact-email" className="block text-xs sm:text-sm font-bold text-slate-900">
+          Email Address
         </label>
         <input
           id="contact-email"
           name="email"
           type="email"
           required
+          placeholder="your.email@example.com"
           value={formData.email}
           onChange={handleChange}
-          className={styles.input}
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 transition-all focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20"
         />
       </div>
 
-      <div className={styles.field}>
-        <label htmlFor="contact-subject" className={styles.label}>
+      <div className="space-y-1.5">
+        <label htmlFor="contact-subject" className="block text-xs sm:text-sm font-bold text-slate-900">
           Subject
         </label>
         <input
           id="contact-subject"
           name="subject"
           type="text"
+          placeholder="Inquiry regarding SIH registration..."
           value={formData.subject}
           onChange={handleChange}
-          className={styles.input}
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 transition-all focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20"
         />
       </div>
 
-      <div className={styles.field}>
-        <label htmlFor="contact-message" className={styles.label}>
+      <div className="space-y-1.5">
+        <label htmlFor="contact-message" className="block text-xs sm:text-sm font-bold text-slate-900">
           Message
         </label>
         <textarea
           id="contact-message"
           name="message"
           required
-          rows={5}
+          rows={4}
+          placeholder="Type your message here..."
           value={formData.message}
           onChange={handleChange}
-          className={styles.textarea}
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 transition-all focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20 resize-y"
         />
       </div>
 
-      <Button type="submit">Send Message</Button>
+      {/* Styled Send Message Button */}
+      <button
+        type="submit"
+        className="group flex w-full items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-[#1e40af] to-[#2563eb] px-6 py-3.5 text-sm sm:text-base font-extrabold text-white shadow-lg shadow-blue-700/25 transition-all duration-200 hover:scale-[1.01] hover:shadow-xl hover:shadow-blue-700/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 active:scale-[0.99]"
+      >
+        <Send size={18} strokeWidth={2.2} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+        Send Message
+      </button>
 
-      <p className={styles.fallback}>
-        This opens your email app with the message pre-filled. Prefer to
-        email directly?{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className={styles.fallbackLink}>
+      <p className="flex items-center gap-1.5 pt-1 text-xs text-slate-500 font-normal">
+        <Mail size={14} className="text-slate-400 flex-shrink-0" />
+        Prefer direct email?{" "}
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-bold text-[#2563eb] hover:underline">
           {CONTACT_EMAIL}
         </a>
       </p>
