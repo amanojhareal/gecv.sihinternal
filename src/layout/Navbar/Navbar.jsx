@@ -24,6 +24,7 @@ import { ImageIcon } from "lucide-react";
 import { ROUTE_PATHS } from "../../routes";
 import NavLinks from "./NavLinks";
 import ContactLogo from "./ContactLogo";
+import CoordinatorsLogo from "./CoordinatorsLogo";
 import FaqLogo from "./FaqLogo";
 
 export default function Navbar() {
@@ -53,6 +54,7 @@ export default function Navbar() {
           <NavLinks onNavigate={closeMobileMenu} />
           <div className="ml-2 flex items-center gap-2 border-l border-slate-200 pl-4">
             <ContactLogo onNavigate={closeMobileMenu} />
+            <CoordinatorsLogo onNavigate={closeMobileMenu} />
             <FaqLogo onNavigate={closeMobileMenu} />
           </div>
         </div>
@@ -99,6 +101,7 @@ export default function Navbar() {
               <NavLinks onNavigate={closeMobileMenu} />
               <div className="mt-2 flex items-center gap-2 border-t border-slate-100 pt-3">
                 <ContactLogo onNavigate={closeMobileMenu} />
+                <CoordinatorsLogo onNavigate={closeMobileMenu} />
                 <FaqLogo onNavigate={closeMobileMenu} />
               </div>
             </div>
