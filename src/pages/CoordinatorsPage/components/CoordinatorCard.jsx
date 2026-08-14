@@ -1,26 +1,18 @@
 import { useState } from "react";
-import { User, Mail, Phone, Palette } from "lucide-react";
+import { User, Mail, Phone } from "lucide-react";
 import { FaLinkedin, FaGithub, FaInstagram, FaBehance } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
-const BADGE_STYLES = {
-  blue: "bg-blue-50 text-blue-700 border-blue-200/80 ring-blue-100",
-  purple: "bg-purple-50 text-purple-700 border-purple-200/80 ring-purple-100",
-  amber: "bg-amber-50 text-amber-700 border-amber-200/80 ring-amber-100",
-};
-
-const ACCENT_GLOW = {
-  blue: "group-hover:border-blue-300 hover:shadow-blue-500/10",
-  purple: "group-hover:border-purple-300 hover:shadow-purple-500/10",
-  amber: "group-hover:border-amber-300 hover:shadow-amber-500/10",
+const ROLE_BADGE_STYLES = {
+  blue: "bg-blue-50 text-blue-800 border-blue-200/70",
+  purple: "bg-purple-50 text-purple-800 border-purple-200/70",
+  amber: "bg-amber-50 text-amber-900 border-amber-200/70",
 };
 
 export default function CoordinatorCard({ member }) {
   const [imageError, setImageError] = useState(false);
-  const badgeStyle = BADGE_STYLES[member.variant] || BADGE_STYLES.blue;
-  const glowStyle = ACCENT_GLOW[member.variant] || ACCENT_GLOW.blue;
+  const badgeStyle = ROLE_BADGE_STYLES[member.variant] || ROLE_BADGE_STYLES.blue;
 
-  // Extract initials for fallback avatar
   const initials = member.name
     ? member.name
         .split(" ")
@@ -32,63 +24,77 @@ export default function CoordinatorCard({ member }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      className={`group relative flex flex-col items-center justify-between text-center rounded-2xl border border-slate-200/80 bg-white p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 ${glowStyle}`}
+      variants={{
+        hidden: { opacity: 0, y: 18, scale: 0.98 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+        },
+      }}
+      whileHover={{ y: -3, transition: { duration: 0.2 } }}
+      className="group relative flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-4.5 sm:p-6 transition-colors duration-200 hover:border-slate-300 hover:shadow-md"
     >
-      <div className="flex flex-col items-center w-full">
-        {/* Role Tag */}
-        <span
-          className={`inline-flex items-center rounded-full border px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider ${badgeStyle}`}
-        >
-          {member.role}
-        </span>
-
-        {/* Avatar Container */}
-        <div className="relative mt-5 mb-4">
-          {member.image && !imageError ? (
-            <img
-              src={member.image}
-              alt={member.name}
-              className="h-28 w-28 rounded-full border-4 border-white object-cover shadow-md ring-2 ring-slate-100 transition-transform duration-300 group-hover:scale-105"
-              loading="lazy"
-              onError={() => setImageError(true)}
-            />
-          ) : (
-            <div className="flex h-28 w-28 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-slate-100 to-slate-200 text-slate-600 shadow-md ring-2 ring-slate-100 transition-transform duration-300 group-hover:scale-105">
-              {member.name.includes("Name") ? (
-                <User size={40} className="text-slate-400" />
-              ) : (
-                <span className="text-xl font-black text-slate-500">{initials}</span>
-              )}
-            </div>
+      <div>
+        {/* Top Meta Bar: Role & Year */}
+        <div className="flex items-center justify-between gap-2">
+          <span
+            className={`inline-flex items-center rounded-md border px-2.5 py-0.5 text-[11px] font-semibold tracking-wide ${badgeStyle}`}
+          >
+            {member.role}
+          </span>
+          {member.year && (
+            <span className="text-[11px] font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200/60 shrink-0">
+              {member.year}
+            </span>
           )}
         </div>
 
-        {/* Member Name */}
-        <h3 className="text-lg font-extrabold text-slate-900 tracking-tight group-hover:text-brand transition-colors">
-          {member.name}
-        </h3>
+        {/* Avatar Photo */}
+        <div className="relative my-3.5 sm:my-4 flex justify-center">
+          <div className="relative">
+            {member.image && !imageError ? (
+              <img
+                src={member.image}
+                alt={member.name}
+                className="h-20 w-20 sm:h-24 sm:w-24 md:h-26 md:w-26 rounded-full border-2 border-white object-cover shadow-xs ring-1 ring-slate-200/80 transition-transform duration-200 group-hover:scale-102"
+                loading="lazy"
+                onError={() => setImageError(true)}
+              />
+            ) : (
+              <div className="flex h-20 w-20 sm:h-24 sm:w-24 md:h-26 md:w-26 items-center justify-center rounded-full border-2 border-white bg-slate-100 text-slate-600 shadow-xs ring-1 ring-slate-200/80">
+                {member.name.includes("Name") ? (
+                  <User size={32} className="text-slate-400" />
+                ) : (
+                  <span className="text-lg sm:text-xl font-bold text-slate-600">
+                    {initials}
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
 
-        {/* Department & Year */}
-        <p className="mt-1 text-xs font-semibold text-slate-500">
-          {member.department}
-        </p>
-        {member.year && (
-          <span className="mt-1 text-[11px] font-medium text-slate-400">
-            {member.year}
-          </span>
-        )}
+        {/* Member Name & Department */}
+        <div className="text-center">
+          <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+            {member.name}
+          </h3>
+          <p className="mt-1 text-xs sm:text-sm text-slate-600 font-medium leading-snug">
+            {member.department}
+          </p>
+        </div>
       </div>
 
-      {/* Social / Contact Links */}
-      <div className="mt-6 flex items-center justify-center gap-2 pt-4 border-t border-slate-100 w-full">
+      {/* Social / Contact Links Footer (Touch-friendly 36px on mobile) */}
+      <div className="mt-4 sm:mt-5 flex items-center justify-center gap-1.5 sm:gap-2 pt-3 border-t border-slate-100">
         {member.email && (
           <a
             href={`mailto:${member.email}`}
             title={`Email ${member.name}`}
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition-colors hover:bg-brand hover:text-white"
+            aria-label={`Email ${member.name}`}
+            className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-50 text-slate-500 border border-slate-200/60 transition-colors hover:bg-blue-50 hover:text-brand hover:border-blue-200 active:scale-95"
           >
             <Mail size={15} strokeWidth={2} />
           </a>
@@ -97,7 +103,8 @@ export default function CoordinatorCard({ member }) {
           <a
             href={`tel:${member.phone}`}
             title={`Call ${member.name}`}
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition-colors hover:bg-emerald-600 hover:text-white"
+            aria-label={`Call ${member.name}`}
+            className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-50 text-slate-500 border border-slate-200/60 transition-colors hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 active:scale-95"
           >
             <Phone size={15} strokeWidth={2} />
           </a>
@@ -107,8 +114,9 @@ export default function CoordinatorCard({ member }) {
             href={member.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            title="LinkedIn Profile"
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition-colors hover:bg-[#0a66c2] hover:text-white"
+            title={`${member.name}'s LinkedIn`}
+            aria-label={`${member.name}'s LinkedIn`}
+            className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-50 text-slate-500 border border-slate-200/60 transition-colors hover:bg-blue-50 hover:text-[#0a66c2] hover:border-blue-200 active:scale-95"
           >
             <FaLinkedin size={14} />
           </a>
@@ -118,8 +126,9 @@ export default function CoordinatorCard({ member }) {
             href={member.github}
             target="_blank"
             rel="noopener noreferrer"
-            title="GitHub Profile"
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition-colors hover:bg-slate-900 hover:text-white"
+            title={`${member.name}'s GitHub`}
+            aria-label={`${member.name}'s GitHub`}
+            className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-50 text-slate-500 border border-slate-200/60 transition-colors hover:bg-slate-100 hover:text-slate-900 hover:border-slate-300 active:scale-95"
           >
             <FaGithub size={14} />
           </a>
@@ -129,8 +138,9 @@ export default function CoordinatorCard({ member }) {
             href={member.behance}
             target="_blank"
             rel="noopener noreferrer"
-            title="Behance Portfolio"
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition-colors hover:bg-[#053ff6] hover:text-white"
+            title={`${member.name}'s Behance`}
+            aria-label={`${member.name}'s Behance`}
+            className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-50 text-slate-500 border border-slate-200/60 transition-colors hover:bg-blue-50 hover:text-[#053ff6] hover:border-blue-200 active:scale-95"
           >
             <FaBehance size={14} />
           </a>
@@ -140,8 +150,9 @@ export default function CoordinatorCard({ member }) {
             href={member.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            title="Instagram Profile"
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition-colors hover:bg-[#e4405f] hover:text-white"
+            title={`${member.name}'s Instagram`}
+            aria-label={`${member.name}'s Instagram`}
+            className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-50 text-slate-500 border border-slate-200/60 transition-colors hover:bg-pink-50 hover:text-[#e4405f] hover:border-pink-200 active:scale-95"
           >
             <FaInstagram size={14} />
           </a>
@@ -150,3 +161,4 @@ export default function CoordinatorCard({ member }) {
     </motion.div>
   );
 }
+
