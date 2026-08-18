@@ -15,10 +15,10 @@
  */
 
 const importantDatesData = [
-  { label: "Registration Opens", date: "2026-08-01" },
-  { label: "Team Formation Deadline", date: "2026-08-20" },
-  { label: "Problem Statement Selection Ends", date: "2026-09-05" },
-  { label: "PPT Submission Deadline", date: "2026-09-25" },
+  { label: "Registration Opens", date: "2026-08-18" },
+  { label: "Team Formation Deadline", date: "2026-09-10" },
+  { label: "Problem Statement Selection Ends", date: "2026-09-10" },
+  { label: "PPT Submission Deadline", date: "2026-09-10" },
   { label: "Internal Shortlisting Results", date: "2026-10-10" },
   { label: "Institute-Level Hackathon", date: "2026-10-25" },
   { label: "Grand Finale (National Round)", date: "2026-11-15" },

@@ -65,7 +65,7 @@ const Timeline = () => {
           </div>
           <div>
             <h2 id="journey-heading" className="text-2xl sm:text-3xl font-extrabold text-[#0f172a] tracking-tight">
-              Journey
+              Timeline
             </h2>
             <div className="w-10 h-1 bg-[#2563eb] rounded-full mt-1" aria-hidden="true" />
           </div>

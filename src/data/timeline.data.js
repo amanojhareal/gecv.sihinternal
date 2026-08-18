@@ -16,7 +16,7 @@
 
 const timelineData = [
   {
-    date: "2026-08-01",
+    date: "2026-08-18",
     title: "Registration Opens",
     description:
       "Teams register on the SIH portal and on this site, form their squad, and pick a problem statement track.",
@@ -25,59 +25,50 @@ const timelineData = [
     status: "active",
   },
   {
-    date: "2026-08-20",
+    date: "2026-09-10",
     title: "Registration Closes",
     description:
-      "Last date to complete registration and finalize your team and problem statement.",
+      "Last date to complete registration, finalize your team and problem statement, and upload the PPT.",
     iconType: "calendar",
     variant: "orange",
     status: "upcoming",
   },
   {
-    date: "2026-09-01",
-    title: "Idea Submission Begins",
+    date: "2026-09-12",
+    title: "Internal Hackathon",
     description:
-      "Submit your ideas using the official template presentation and initial architectural outline.",
-    iconType: "file",
-    variant: "green",
-    status: "upcoming",
-  },
-  {
-    date: "2026-09-25",
-    title: "Idea Submission (PPT Round)",
-    description:
-      "Teams submit their proposed solution as a presentation through the Upload PPT form for internal shortlisting.",
+      "Teams submit their proposed solution as a PDF through the upload form and present their prototypes for the internal shortlisting process.",
     iconType: "file",
     variant: "purple",
     status: "upcoming",
   },
-  {
-    date: "2026-10-10",
-    title: "Internal Shortlisting Results",
-    description:
-      "Shortlisted teams are announced and given access to mentorship sessions ahead of the institute-level round.",
-    iconType: "award",
-    variant: "teal",
-    status: "upcoming",
-  },
-  {
-    date: "2026-10-25",
-    title: "Institute-Level Hackathon",
-    description:
-      "Shortlisted teams build and present a working prototype on-site to compete for a spot in the national round.",
-    iconType: "calendar",
-    variant: "blue",
-    status: "upcoming",
-  },
-  {
-    date: "2026-11-15",
-    title: "Grand Finale (National Round)",
-    description:
-      "Top teams from across institutes compete in the 36-hour national hackathon, judged by industry and government experts.",
-    iconType: "award",
-    variant: "indigo",
-    status: "upcoming",
-  },
+  // {
+  //   date: "To be anoun",
+  //   title: "Internal Shortlisting Results",
+  //   description:
+  //     "Shortlisted teams are announced and given access to mentorship sessions ahead of the institute-level round.",
+  //   iconType: "award",
+  //   variant: "teal",
+  //   status: "upcoming",
+  // },
+  // {
+  //   date: "2026-10-25",
+  //   title: "Institute-Level Hackathon",
+  //   description:
+  //     "Shortlisted teams build and present a working prototype on-site to compete for a spot in the national round.",
+  //   iconType: "calendar",
+  //   variant: "blue",
+  //   status: "upcoming",
+  // },
+  // {
+  //   date: "2026-11-15",
+  //   title: "Grand Finale (National Round)",
+  //   description:
+  //     "Top teams from across institutes compete in the 36-hour national hackathon, judged by industry and government experts.",
+  //   iconType: "award",
+  //   variant: "indigo",
+  //   status: "upcoming",
+  // },
 ];
 
 export default timelineData;

@@ -18,7 +18,7 @@
  * timezones, since a bare date string is parsed as UTC midnight while
  * "new Date(y, m, d)" is parsed in the browser's local time.
  */
-export const EVENT_TARGET_DATE = "2026-08-22T09:00:00+05:30"; // IST
+export const EVENT_TARGET_DATE = "2026-09-10T09:00:00+05:30"; // IST
 
 // Human-readable label for the event, useful in <title>, meta tags, and
 // anywhere the countdown target needs a caption.

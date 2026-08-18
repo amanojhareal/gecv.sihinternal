@@ -65,7 +65,7 @@ const LandingPage = () => {
 
         {/* Supporting Sections Container */}
         <div className="mx-auto max-w-4xl px-4 sm:px-6 space-y-10 sm:space-y-14">
-          <ImportantDates />
+          {/* <ImportantDates /> */}
           <Organizers />
           <FaqPreview />
           <ContactSection />
