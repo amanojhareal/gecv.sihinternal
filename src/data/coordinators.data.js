@@ -9,7 +9,7 @@ import amitImg from "../assets/cordinator_images/4m1t.jpeg";
 import sanskritiImg from "../assets/cordinator_images/Sanskriti.jpg";
 import tivraImg from "../assets/cordinator_images/Tivra.jpg.jpeg";
 import amanImg from "../assets/cordinator_images/Aman.jpeg";
-import kinIro from "../assets/cordinator_images/sonali.jpeg";
+import kinIro from "../assets/cordinator_images/Sonali.jpeg";
 import chauhan from "../assets/cordinator_images/SonaliChauhan.jpeg";
 import saurav from "../assets/cordinator_images/Saurav.jpeg";
 
