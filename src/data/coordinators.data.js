@@ -56,7 +56,7 @@ const studentCoordinatorsData = [
         id: "des-1",
         name: "Amit Lal",
         role: "Design Lead",
-        department: "Department of Electronics & Comm.",
+        department: "Computer Science & Engineering",
         year: "2nd Year",
         image: amitImg,
         email: "amit2020lal@gmail.com",

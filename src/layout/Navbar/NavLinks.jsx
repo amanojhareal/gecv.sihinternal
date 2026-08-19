@@ -65,7 +65,7 @@ export default function NavLinks({ onNavigate }) {
           className="group flex items-center gap-2 rounded-xl px-3.5 py-2 text-sm font-semibold text-ink-muted transition-colors hover:bg-slate-50 hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
         >
           <FileText size={17} strokeWidth={2} aria-hidden="true" />
-          Problem Statement
+          Problem Statements
           
         </a>
       </li>
