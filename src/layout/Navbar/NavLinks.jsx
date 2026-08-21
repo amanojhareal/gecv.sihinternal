@@ -58,7 +58,7 @@ export default function NavLinks({ onNavigate }) {
 
       <li>
         <a
-          href="/assets/ps/sih26ps.pdf"
+          href={SIH_PORTAL_URL}
           target="_blank"
           rel="noopener noreferrer"
           download="gec_sih_26.pdf"
