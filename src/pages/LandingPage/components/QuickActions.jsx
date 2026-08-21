@@ -42,7 +42,7 @@ const QuickActions = () => {
 
         {/* Card 2: Problem Statements */}
         <a
-          href={SIH_PORTAL_URL}
+          href="https://sih.gov.in/sih2026PS"
           target="_blank"
           rel="noopener noreferrer"
           className="group relative flex flex-col items-center justify-center text-center rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-sm transition-all duration-300 hover:border-amber-300 hover:shadow-md hover:-translate-y-1 cursor-pointer"
